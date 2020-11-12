@@ -7,7 +7,7 @@ fn main() {
   args.remove(0);
   if args.len() <= 0 {
     println!("please enter a string:");
-    send = text_io::read!();
+    send = text_io::read!("{}\n");
   } else if args.len() > 0 {
     for x in args {
       let y: &str = &format!(" {}", x);
@@ -15,10 +15,11 @@ fn main() {
     }
     send = send.trim_start().to_string();
   }
+  // println!("{}", send);
   println!("new string with vowels removed: \"{}\"", replace_vowels(&send));
 }
 
 fn replace_vowels(s: &str) -> String {
   let re = Regex::new(r"[aeiuo]").unwrap();
-  re.replace_all(s, "").to_string()
+  return re.replace_all(s, "").to_string();
 }
