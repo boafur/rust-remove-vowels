@@ -1,8 +1,8 @@
 use regex::Regex;
-use std::env;
+use std::env::args;
 
 fn main() {
-  let mut args: Vec<String> = env::args().collect();
+  let mut args: Vec<String> = args().collect();
   let mut send: String = String::new();
   args.remove(0);
   if args.len() <= 0 {
@@ -16,7 +16,7 @@ fn main() {
     send = send.trim_start().to_string();
   }
   // println!("{}", send);
-  println!("new string with vowels removed: \"{}\"", replace_vowels(&send));
+  println!("new string with vowels removed: \"{0}\"", replace_vowels(&send));
 }
 
 fn replace_vowels(s: &str) -> String {
