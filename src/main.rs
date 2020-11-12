@@ -1,12 +1,15 @@
-use regex::Regex;
 use std::env::args;
+use std::io;
+use std::io::Write;
+use regex::Regex;
 
 fn main() {
   let mut args: Vec<String> = args().collect();
   let mut send: String = String::new();
   args.remove(0);
   if args.len() <= 0 {
-    println!("please enter a string:");
+    print!("please enter a string: ");
+    io::stdout().flush().unwrap();
     send = text_io::read!("{}\n");
   } else if args.len() > 0 {
     for x in args {
