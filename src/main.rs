@@ -10,7 +10,7 @@ fn main() {
     send = text_io::read!("{}\n");
   } else if args.len() > 0 {
     for x in args {
-      let y: &str = &format!(" {}", x);
+      let y = &format!(" {}", x);
       send.push_str(&y);
     }
     send = send.trim_start().to_string();
